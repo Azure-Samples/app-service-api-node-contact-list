@@ -50,7 +50,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/Contacts"
+								"$ref": "#/definitions/Contact"
 							}
 						}
 					}
