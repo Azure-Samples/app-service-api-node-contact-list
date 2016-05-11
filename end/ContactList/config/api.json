@@ -5,8 +5,6 @@
 		"title": "Contact List",
     	"description": "A Contact list API based on Swagger and built using Node.js"
 	},
-	"schemes": ["http", "https"],
-  	"basePath": "/",
 	"paths": {
 		"/contacts": {
 			"get": {
