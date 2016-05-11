@@ -1,29 +1,30 @@
- 'use strict';
+'use strict';
 
- var http = require('http');
- var express = require('express');
- var bodyParser = require('body-parser');
- var swaggerize = require('swaggerize-express');
- var swaggerUi = require('swaggerize-ui'); // change one
- var path = require('path');
+var port = process.env.PORT || 8000; // first change
 
- var app = express();
+var http = require('http');
+var express = require('express');
+var bodyParser = require('body-parser');
+var swaggerize = require('swaggerize-express');
+var swaggerUi = require('swaggerize-ui'); // second change
+var path = require('path');
 
- var server = http.createServer(app);
+var app = express();
 
- app.use(bodyParser.json());
+var server = http.createServer(app);
 
- app.use(swaggerize({
-     api: path.resolve('./config/api.json'), // change two
-     handlers: path.resolve('./handlers'),
-     docspath: '/swagger' // change three
- }));
+app.use(bodyParser.json());
 
- // change four
- app.use('/docs', swaggerUi({
-   docs: '/swagger'  
- }));
+app.use(swaggerize({
+    api: path.resolve('./config/api.json'), // third change
+    handlers: path.resolve('./handlers'),
+    docspath: '/swagger' // fourth change
+}));
 
- server.listen(8000, function () {
-     app.setHost(undefined); // change five
- });
+// change four
+app.use('/docs', swaggerUi({
+  docs: '/swagger'  
+}));
+
+server.listen(port, function () { // fifth and final change
+});
